@@ -38,6 +38,9 @@ def run_optical_flow(vid_item, dev_id=0):
     vid_id = vid_item[1]
     vid_name = vid_path.split('/')[-1].split('.')[0]
     out_full_path = os.path.join(out_path, vid_name)
+    if os.path.exists(out_full_path):
+        print("{} {} already done, skipping".format(vid_id, vid_name))
+        return True
     try:
         os.mkdir(out_full_path)
     except OSError:
@@ -63,6 +66,9 @@ def run_warp_optical_flow(vid_item, dev_id=0):
     vid_id = vid_item[1]
     vid_name = vid_path.split('/')[-1].split('.')[0]
     out_full_path = os.path.join(out_path, vid_name)
+    if os.path.exists(out_full_path):
+        print("{} {} already done, skipping".format(vid_id, vid_name))
+        return True
     try:
         os.mkdir(out_full_path)
     except OSError:
