@@ -120,7 +120,7 @@ if __name__ == '__main__':
         print "creating folder: "+out_path
         os.makedirs(out_path)
 
-    vid_list = glob.glob(src_path+'/*/*.'+ext)
+    vid_list = glob.glob(src_path+'/*/*/*.'+ext)
     print(src_path+'/*/*.'+ext)
     print len(vid_list)
     pool = Pool(num_worker)
