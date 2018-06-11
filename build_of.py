@@ -36,9 +36,10 @@ def dump_frames(vid_path):
 def run_optical_flow(vid_item, dev_id=0):
     vid_path = vid_item[0]
     vid_id = vid_item[1]
-    user_id = vid_path.split("/")[-2]
+    user_id = vid_path.split('/')[-3]
+    slide_id = vid_path.split('/')[-2]
     vid_name = vid_path.split('/')[-1].split('.')[0]
-    out_full_path = os.path.join(out_path, user_id, vid_name)
+    out_full_path = os.path.join(out_path, user_id, slide_id, vid_name)
     if os.path.exists(out_full_path):
         print("{} {} already done, skipping".format(vid_id, vid_name))
         return True
@@ -65,9 +66,10 @@ def run_optical_flow(vid_item, dev_id=0):
 def run_warp_optical_flow(vid_item, dev_id=0):
     vid_path = vid_item[0]
     vid_id = vid_item[1]
-    user_id = vid_path.split('/')[-2]
+    user_id = vid_path.split('/')[-3]
+    slide_id = vid_path.split('/')[-2]
     vid_name = vid_path.split('/')[-1].split('.')[0]
-    out_full_path = os.path.join(out_path, user_id, vid_name)
+    out_full_path = os.path.join(out_path, user_id, slide_id, vid_name)
     if os.path.exists(out_full_path):
         print("{} {} already done, skipping".format(vid_id, vid_name))
         return True
